@@ -1,50 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
+  "$id": "https://stac-extensions.github.io/osc/v1.0.0/schema.json#",
+  "title": "Open Science Catalog Extension",
   "description": "STAC Template Extension for STAC Items and STAC Collections.",
   "oneOf": [
-    {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for Item Properties.",
-                  "required": [
-                    "template:new_field"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "$comment": "This validates the fields in Item Assets, but does not require them.",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        }
-      ]
-    },
     {
       "$comment": "This is the schema for STAC Collections.",
       "type": "object",
@@ -102,42 +61,6 @@
               }
             }
           }
-        },
-        {
-          "$comment": "This is the schema for the fields in Item Asset Definitions. It doesn't require any fields.",
-          "required": [
-            "item_assets"
-          ],
-          "properties": {
-            "item_assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "$comment": "This is the schema for the fields in Summaries. By default, only checks the existence of the properties, but not the schema of the summaries.",
-          "required": [
-            "summaries"
-          ],
-          "properties": {
-            "summaries": {
-              "$ref": "#/definitions/require_any_field"
-            }
-          }
         }
       ]
     }
@@ -152,7 +75,7 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/osc/v1.0.0/schema.json"
           }
         }
       }
@@ -160,46 +83,70 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
+        {"required": ["osc:type"]},
+        {"required": ["osc:name"]},
+        {"required": ["osc:status"]},
+        {"required": ["osc:region"]},
+        {"required": ["osc:themes"]},
+        {"required": ["osc:variable"]},
+        {"required": ["osc:missions"]},
+        {"required": ["osc:technical_officer"]},
+        {"required": ["osc:consortium"]}
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
+        "osc:type": {
+          "type": "string",
+          "enum": ["Project", "Product"]
+        },
+        "osc:name": {
           "type": "string"
         },
-        "template:xyz": {
+        "osc:status": {
+          "type": "string",
+          "enum": ["ONGOING", "COMPLETED"]
+        },
+        "osc:region": {
+          "type": "string"
+        },
+        "osc:themes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "osc:variable": {
+          "type": "string"
+        },
+        "osc:missions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "osc:technical_officer": {
           "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
           "properties": {
-            "x": {
-              "type": "number"
+            "name": {
+              "type": "string"
             },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
+            "e-mail": {
+              "type": "string"
             }
           }
         },
-        "template:another_one": {
+        "osc:consortium": {
           "type": "array",
           "items": {
-            "type": "number"
+            "type": "string"
           }
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
+        "^(?!osc:)": {
           "$comment": "Above, change `template` to the prefix of this extension"
         }
       },
