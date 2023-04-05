@@ -1,4 +1,4 @@
-# Template Extension Specification
+# Open Science Catalog Extension Specification
 
 - **Title:** Open Science Catalog
 - **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0/schema.json>
