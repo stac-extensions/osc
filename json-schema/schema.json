@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://stac-extensions.github.io/osc/v1.0.0/schema.json#",
   "title": "Open Science Catalog Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "description": "STAC Open Science Catalog Extension for STAC Items and STAC Collections.",
   "oneOf": [
     {
       "$comment": "This is the schema for STAC Collections.",
@@ -26,12 +26,6 @@
         {
           "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
           "allOf": [
-            {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "template:new_field"
-              ]
-            },
             {
               "$ref": "#/definitions/fields"
             }
@@ -146,9 +140,7 @@
         }
       },
       "patternProperties": {
-        "^(?!osc:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
+        "^(?!osc:)": {}
       },
       "additionalProperties": false
     }
