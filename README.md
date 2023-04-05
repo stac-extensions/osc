@@ -61,7 +61,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | osc:status            | string                                                | Either `"COMPLETED"` or `"ONGOING"`.                                                   | project, product |
 | osc:region            | string                                                | The name of the geographic region this project or product is dealing with if any.      | project, product |
 | osc:themes            | string                                                | The name of the themes the project or product is dealing with.                         | project, product |
-| osc:variable          | string                                                | The name of the variable the product is observing.                                     | product |
+| osc:variables         | [string]                                              | The names of the variables the product is observing.                                   | product |
 | osc:missions          | string                                                | The name of the satellite missions which provided input for this project or product.   | project, product |
 | osc:technical_officer | [Technical Officer Object](#technical-officer-object) | The technical officer supervising the project.                                         | project |
 | osc:consortium        | [string]                                              | The names of the participating organizations                                           | project |
@@ -152,7 +152,7 @@ The JSON file structure is an array of objects, each having at least he `name`, 
 
 ### Variable JSON file
 
-The JSON file structure is an array of objects, each having at least he `name`, `description`, `link` and `theme` fields, describing the theme.
+The JSON file structure is an array of objects, each having at least he `name`, `description`, `link` and `themes` fields, describing the theme.
 
 ```json
 [
@@ -160,13 +160,13 @@ The JSON file structure is an array of objects, each having at least he `name`, 
     "name": "(13)CH4 delta",
     "description": "3D field of\u00a0Delta C-13 in CH4 (Methane) (isotopic signature).\u00a0Isotopic ratio, expressed as deviations from an agreed-upon international reference measurement standard (which defines the corresponding isotope scales) using the delta notation: \u03b4 = (Rsample/Rreference \u2013 1), with R = [rare isotope]/[abundant isotope].",
     "link": "https://space.oscar.wmo.int/variables/view/13_ch4_delta",
-    "theme": "Atmosphere"
+    "themes": ["Atmosphere"]
   },
   {
     "name": "(13)CO Delta",
     "description": "3D field of\u00a0Delta C-13 in CO (Carbon monoxide) (isotopic signature)",
     "link": "https://space.oscar.wmo.int/variables/view/13_co_delta",
-    "theme": "Atmosphere"
+    "themes": ["Atmosphere"]
   },
   ...
 ]
