@@ -7,7 +7,8 @@
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @constantinius
 
-This document explains the Open Science Catalog Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+This document explains the Open Science Catalog Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec)
+(STAC) specification.
 
 ## Terms
 
@@ -23,7 +24,8 @@ An physical variable observed by a science product.
 
 ### Project
 
-A science project dealing with theme, often bound to a certain geographic region. Each project can produce a a number of products, which are sub-collections of type [`Product`](#product).
+A science project dealing with theme, often bound to a certain geographic region. Each project can produce a a number of products,
+which are sub-collections of type [`Product`](#product).
 
 In the OSC STAC Extension, projects are depicted as STAC Collections with additional [fields](#fields).
 
@@ -33,8 +35,8 @@ The description of a science product which was produced in the context of a [pro
 
 In the OSC STAC Extension, products are depicted as STAC Collections with additional [fields](#fields).
 
-A product can be linked to sub-collections/catalogs of any shape or form dor directly reference the STAC Items actually referencing the data files the Product is comprised of.
-
+A product can be linked to sub-collections/catalogs of any shape or form dor directly reference the STAC Items actually referencing
+the data files the Product is comprised of.
 
 - Examples:
   - [Root Collection example](examples/collection.json): Shows the root level of an OSC catalog
@@ -52,23 +54,24 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                      | Description | Available for |
-| -------------------- | ------------------------- | ----------- | ------------- |
-| osc:type             | string                    | The underlying type of this collection. Either `"Project"` or `"Product"`. | project, product |
-| osc:name             | string                    | The descriptive name of the project or product. Can be distinct from `title` or `id`. | project, product |
-| osc:status           | string                    | Either `"COMPLETED"` or `"ONGOING"`. | project, product |
-| osc:region           | string                    | The name of the geographic region this project or product is dealing with if any. | project, product |
-| osc:themes           | string                    | The name of the themes the project or product is dealing with. | project, product |
-| osc:variable         | string                    | The name of the variable the product is observing. | product |
-| osc:missions         | string                    | The name of the satellite missions which provided input for this project or product. | project, product |
-| osc:technical_officer| [Technical Officer Object](#technical-officer-object) | The technical officer supervising the project. | project |
-| osc:consortium       | [string]                  | The names of the participating organizations | project |
+| Field Name            | Type                                                  | Description                                                                            | Available for |
+| --------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------- |
+| osc:type              | string                                                | The underlying type of this collection. Either `"Project"` or `"Product"`.             | project, product |
+| osc:name              | string                                                | The descriptive name of the project or product. Can be distinct from `title` or `id`.  | project, product |
+| osc:status            | string                                                | Either `"COMPLETED"` or `"ONGOING"`.                                                   | project, product |
+| osc:region            | string                                                | The name of the geographic region this project or product is dealing with if any.      | project, product |
+| osc:themes            | string                                                | The name of the themes the project or product is dealing with.                         | project, product |
+| osc:variable          | string                                                | The name of the variable the product is observing.                                     | product |
+| osc:missions          | string                                                | The name of the satellite missions which provided input for this project or product.   | project, product |
+| osc:technical_officer | [Technical Officer Object](#technical-officer-object) | The technical officer supervising the project.                                         | project |
+| osc:consortium        | [string]                                              | The names of the participating organizations                                           | project |
 
 ### Additional Field Information
 
 #### osc:type
 
-The type of this collection, as either `"Project"` if it is a project collection or `"Product"`. This field then defines what other fields are allowed.
+The type of this collection, as either `"Project"` if it is a project collection or `"Product"`. This field then
+defines what other fields are allowed.
 
 #### osc:name
 
