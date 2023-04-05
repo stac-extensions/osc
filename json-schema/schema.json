@@ -82,7 +82,7 @@
         {"required": ["osc:status"]},
         {"required": ["osc:region"]},
         {"required": ["osc:themes"]},
-        {"required": ["osc:variable"]},
+        {"required": ["osc:variables"]},
         {"required": ["osc:missions"]},
         {"required": ["osc:technical_officer"]},
         {"required": ["osc:consortium"]}
@@ -112,8 +112,11 @@
             "type": "string"
           }
         },
-        "osc:variable": {
-          "type": "string"
+        "osc:variables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "osc:missions": {
           "type": "array",
