@@ -1,73 +1,62 @@
 {
-  "stac_version": "1.0.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-  ],
   "type": "Collection",
-  "id": "collection",
-  "title": "A title",
-  "description": "A description",
-  "license": "Apache-2.0",
+  "id": "Open Science Catalog",
+  "stac_version": "1.0.0",
+  "description": "",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./4dionosphere-swarm-vip/collection.json",
+      "type": "application/json",
+      "title": "SWARM VIP"
+    }
+  ],
+  "stac_extensions": [],
+  "assets": {
+    "themes": {
+      "href": "./themes.json",
+      "type": "application/json",
+      "title": "Themes",
+      "description": "Themes"
+    },
+    "variables": {
+      "href": "./variables.json",
+      "type": "application/json",
+      "title": "Variables",
+      "description": "Variables"
+    },
+    "eo-missions": {
+      "href": "./eo-missions.json",
+      "type": "application/json",
+      "title": "EO Missions",
+      "description": "EO Missions"
+    }
+  },
+  "updated": "2023-03-24T12:36:56.574146Z",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          172.9,
-          1.3,
-          173,
-          1.4
+          -180.0,
+          -90.0,
+          180.0,
+          90.0
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2015-06-23T00:00:00Z",
+          null,
           null
         ]
       ]
     }
   },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
-  ],
-  "assets": {
-    "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
-  },
-  "item_assets": {
-    "data": {
-      "roles": [
-        "data"
-      ],
-      "template:new_field": "test"
-    }
-  },
-  "summaries": {
-    "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
-    }
-  },
-  "links": [
-    {
-      "href": "https://example.com/examples/collection.json",
-      "rel": "self"
-    },
-    {
-      "href": "https://example.com/examples/item.json",
-      "rel": "item"
-    }
-  ]
+  "license": "proprietary"
 }
