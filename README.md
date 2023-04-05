@@ -37,7 +37,9 @@ A product can be linked to sub-collections/catalogs of any shape or form dor dir
 
 
 - Examples:
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [Root Collection example](examples/collection.json): Shows the root level of an OSC catalog
+  - [Project Collection example](examples/4dionosphere-swarm-vip/collection.json): Shows a project STAC Collection
+  - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
