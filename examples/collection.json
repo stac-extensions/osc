@@ -2,7 +2,7 @@
   "type": "Collection",
   "id": "Open Science Catalog",
   "stac_version": "1.0.0",
-  "description": "",
+  "description": "Open Science Catalog",
   "links": [
     {
       "rel": "root",
@@ -42,10 +42,10 @@
     "spatial": {
       "bbox": [
         [
-          -180.0,
-          -90.0,
-          180.0,
-          90.0
+          -180,
+          -90,
+          180,
+          90
         ]
       ]
     },

@@ -60,11 +60,11 @@ The fields in the table below can be used in these parts of STAC documents:
 | osc:name              | string                                                | The descriptive name of the project or product. Can be distinct from `title` or `id`.  | project, product |
 | osc:status            | string                                                | Either `"COMPLETED"` or `"ONGOING"`.                                                   | project, product |
 | osc:region            | string                                                | The name of the geographic region this project or product is dealing with if any.      | project, product |
-| osc:themes            | [string]                                              | The names of the themes the project or product is dealing with.                        | project, product |
-| osc:variables         | [string]                                              | The names of the variables the product is observing.                                   | product |
-| osc:missions          | [string]                                              | The names of the satellite missions which provided input for this project or product.  | project, product |
+| osc:themes            | \[string]                                             | The names of the themes the project or product is dealing with.                        | project, product |
+| osc:variables         | \[string]                                             | The names of the variables the product is observing.                                   | product |
+| osc:missions          | \[string]                                             | The names of the satellite missions which provided input for this project or product.  | project, product |
 | osc:technical_officer | [Technical Officer Object](#technical-officer-object) | The technical officer supervising the project.                                         | project |
-| osc:consortium        | [string]                                              | The names of the participating organizations                                           | project |
+| osc:consortium        | \[string]                                             | The names of the participating organizations                                           | project |
 
 ### Additional Field Information
 
