@@ -103,6 +103,9 @@
           "type": "string",
           "enum": ["ONGOING", "COMPLETED"]
         },
+        "osc:project": {
+          "type": "string"
+        },
         "osc:region": {
           "type": "string"
         },
