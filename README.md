@@ -54,124 +54,31 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name            | Type                                                  | Description                                                                            | Available for |
-| --------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------- |
-| osc:type              | string                                                | The underlying type of this collection. Either `"project"` or `"product"`.             | project, product |
-| osc:name              | string                                                | The descriptive name of the project or product. Can be distinct from `title` or `id`.  | project, product |
-| osc:status            | string                                                | Either `"completed"` or `"ongoing"`.                                                   | project, product |
-| osc:project           | string                                                | The name of the project this product is associated with.                               | product |
-| osc:region            | string                                                | The name of the geographic region this project or product is dealing with if any.      | project, product |
-| osc:themes            | \[string]                                             | The names of the themes the project or product is dealing with.                        | project, product |
-| osc:variables         | \[string]                                             | The names of the variables the product is observing.                                   | product |
-| osc:missions          | \[string]                                             | The names of the satellite missions which provided input for this project or product.  | project, product |
-| osc:technical_officer | [Technical Officer Object](#technical-officer-object) | The technical officer supervising the project.                                         | project |
-| osc:consortium        | \[string]                                             | The names of the participating organizations                                           | project |
+| Field Name    | Type      | Description                                                                            | Available for |
+| ------------- | --------- | -------------------------------------------------------------------------------------- | ------------- |
+| osc:type      | string    | The underlying type of this collection. Either `"project"` or `"product"`. This field then defines what other fields are allowed. | project, product |
+| osc:name      | string    | The descriptive name of the project or product. Can be distinct from `title` or `id`, but is available for historic reasons. | project, product |
+| osc:status    | string    | This field details whether the project has already been completed (`"completed"`) or whether it is still ongoing (`"ongoing"`). | project, product |
+| osc:project   | string    | The name of the project this product is associated with.                               | product |
+| osc:region    | string    | The name of the geographic region this project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. | project, product |
+| osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. | product |
+| osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  | project, product |
 
-### Additional Field Information
+### Contacts
 
-#### osc:type
+The following fields should be implemented from the [Contacts extension](https://github.com/stac-extensions/contacts):
 
-The type of this collection, as either `"project"` if it is a project collection or `"product"`. This field then
-defines what other fields are allowed.
+| Field Name | Type | Description | Available for |
+| ---------- | ---- | ----------- | ------------- |
+| contacts   | \[[Contact Object](https://github.com/stac-extensions/contacts/blob/main/README.md#contact-object)] | A list of contacts qualified by their role. The role for the technical officer of a project is `technical_officer`. The role for consortium partners is `consortium_member`. | project |
 
-#### osc:name
+### Themes
 
-A more descriptive name of the project/product. This is for historic reason and usually more descriptive than the `title`.
+The following fields should be implemented from the [Themes extension](https://github.com/stac-extensions/themes):
 
-#### osc:status
-
-This field details whether the project has already been completed (`"completed"`) or whether it is still ongoing (`"ongoing"`).
-
-#### osc:region
-
-This is the name of the region, the project or product operates in, e.g `"Arctic"` or `"Agulhas"`.
-
-#### osc:variable
-
-The name of the variable that this product observes, e.g `"Wind stress"` or `"Geomagnetic field"`.
-
-#### osc:missions
-
-The names of the EO Satellite missions contributing to this particulate science product.
-
-### Technical Officer Object
-
-This object describes the contact details of the technical officer supervising a project.
-
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| name        | string | **REQUIRED**. The name of the technical officer. |
-| e-mail      | number | **REQUIRED**. The e-mail address of the technical officer. |
-
-## Roles
-
-The following asset roles can be used to more accurately describe root level metadata files.
-
-| Role        | Description |
-| ----------- | ----------- |
-| eo-missions | The role of the JSON file describing all contributing EO-Missions |
-| themes      | The role of the JSON file describing all available themes of the catalog. |
-| variables   | The role of the JSON file describing all available variables of the catalog. |
-
-### EO Missions JSON file
-
-The JSON file structure is an array of objects, each having at least he `name` field, depicting the EO Missions name.
-
-```json
-[
-  {
-    "name": "AEOLUS"
-  },
-  {
-    "name": "AMSR-E"
-  },
-  {
-    "name": "AMSR2"
-  },
-  {
-    "name": "ASCAT"
-  },
-  ...
-]
-```
-
-### Themes JSON file
-
-The JSON file structure is an array of objects, each having at least he `name`, `description`, `link` and `image` fields, describing the theme.
-
-```json
-[
-  {
-    "name": "Atmosphere",
-    "description": "Trace gases are produced and destructed by physical, biological and chemical processes. This natural cycle has been perturbed over the past decades by the global population increase and by the related boost of anthropogenic activities. The composition of the atmosphere is undergoing major and rapid changes with significant impacts on a global scale, affecting the environment and human health. Funding agencies and the scientific community have been putting enormous efforts into studying the impact of these changes. Nonetheless, there is still a need to fill knowledge gaps and enhance the understanding of precursors and the formation mechanisms of the different atmospheric compounds and the relative contribution of biogenic and anthropogenic sources and sinks to their global budget. Such knowledge improvements shall serve as input for policy makers in order to adopt mitigation and adaptation strategies.",
-    "link": "https://eo4society.esa.int/communities/scientists/esa-atmosphere-science-cluster/",
-    "image": "https://metadata.opensciencedata.esa.int/open-science-catalog-metadata/themes/images/EO_Atmosphere.webp"
-  },
-  ...
-]
-```
-
-### Variable JSON file
-
-The JSON file structure is an array of objects, each having at least he `name`, `description`, `link` and `themes` fields, describing the theme.
-
-```json
-[
-  {
-    "name": "(13)CH4 delta",
-    "description": "3D field of\u00a0Delta C-13 in CH4 (Methane) (isotopic signature).\u00a0Isotopic ratio, expressed as deviations from an agreed-upon international reference measurement standard (which defines the corresponding isotope scales) using the delta notation: \u03b4 = (Rsample/Rreference \u2013 1), with R = [rare isotope]/[abundant isotope].",
-    "link": "https://space.oscar.wmo.int/variables/view/13_ch4_delta",
-    "themes": ["Atmosphere"]
-  },
-  {
-    "name": "(13)CO Delta",
-    "description": "3D field of\u00a0Delta C-13 in CO (Carbon monoxide) (isotopic signature)",
-    "link": "https://space.oscar.wmo.int/variables/view/13_co_delta",
-    "themes": ["Atmosphere"]
-  },
-  ...
-]
-```
+| Field Name | Type | Description | Available for |
+| ---------- | ---- | ----------- | ------------- |
+| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/main/README.md#theme-object)]] | The names of the themes the project or product is dealing with. | project, product |
 
 ## Contributing
 

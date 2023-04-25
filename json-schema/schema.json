@@ -81,11 +81,8 @@
         {"required": ["osc:name"]},
         {"required": ["osc:status"]},
         {"required": ["osc:region"]},
-        {"required": ["osc:themes"]},
         {"required": ["osc:variables"]},
-        {"required": ["osc:missions"]},
-        {"required": ["osc:technical_officer"]},
-        {"required": ["osc:consortium"]}
+        {"required": ["osc:missions"]}
       ]
     },
     "fields": {
@@ -109,12 +106,6 @@
         "osc:region": {
           "type": "string"
         },
-        "osc:themes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "osc:variables": {
           "type": "array",
           "items": {
@@ -122,23 +113,6 @@
           }
         },
         "osc:missions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "osc:technical_officer": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "e-mail": {
-              "type": "string"
-            }
-          }
-        },
-        "osc:consortium": {
           "type": "array",
           "items": {
             "type": "string"

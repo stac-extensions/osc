@@ -19,19 +19,19 @@
   "stac_extensions": [],
   "assets": {
     "themes": {
-      "href": "./themes.json",
+      "href": "../themes.json",
       "type": "application/json",
       "title": "Themes",
       "description": "Themes"
     },
     "variables": {
-      "href": "./variables.json",
+      "href": "../variables.json",
       "type": "application/json",
       "title": "Variables",
       "description": "Variables"
     },
     "eo-missions": {
-      "href": "./eo-missions.json",
+      "href": "../eo-missions.json",
       "type": "application/json",
       "title": "EO Missions",
       "description": "EO Missions"
