@@ -70,7 +70,12 @@ The following fields should be implemented from the [Contacts extension](https:/
 
 | Field Name | Type | Description | Available for |
 | ---------- | ---- | ----------- | ------------- |
-| contacts   | \[[Contact Object](https://github.com/stac-extensions/contacts/blob/main/README.md#contact-object)] | A list of contacts qualified by their role. The role for the technical officer of a project is `technical_officer`. The role for consortium partners is `consortium_member`. | project |
+| contacts   | \[[Contact Object](https://github.com/stac-extensions/contacts/blob/main/README.md#contact-object)] | A list of contacts qualified by their role. | project |
+
+The following `roles` for contacts SHALL be used:
+
+- The role for the technical officer of a project is `technical_officer`.
+- The role for consortium partners is `consortium_member`.
 
 ### Themes
 
@@ -78,7 +83,7 @@ The following fields should be implemented from the [Themes extension](https://g
 
 | Field Name | Type | Description | Available for |
 | ---------- | ---- | ----------- | ------------- |
-| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/main/README.md#theme-object)]] | The names of the themes the project or product is dealing with. | project, product |
+| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/main/README.md#theme-object)] | The names of the themes the project or product is dealing with. | project, product |
 
 ## Contributing
 

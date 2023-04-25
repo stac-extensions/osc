@@ -14,9 +14,11 @@
   "osc:type": "project",
   "themes": [
     {
-      "concepts": {
-        "id": "Magnetosphere_Ionosphere"
-      },
+      "concepts": [
+        {
+          "id": "Magnetosphere_Ionosphere"
+        }
+      ],
       "scheme": "../../themes.json"
     }
   ],
