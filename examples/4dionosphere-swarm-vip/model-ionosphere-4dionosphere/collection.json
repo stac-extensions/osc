@@ -36,7 +36,6 @@
     "Ionospheric plasma density"
   ],
   "osc:status": "completed",
-  "osc:region": null,
   "osc:type": "product",
   "keywords": [
     "theme:Magnetosphere_Ionosphere",
