@@ -94,14 +94,14 @@
       "properties": {
         "osc:type": {
           "type": "string",
-          "enum": ["Project", "Product"]
+          "enum": ["project", "product"]
         },
         "osc:name": {
           "type": "string"
         },
         "osc:status": {
           "type": "string",
-          "enum": ["ONGOING", "COMPLETED"]
+          "enum": ["ongoing", "completed"]
         },
         "osc:project": {
           "type": "string"

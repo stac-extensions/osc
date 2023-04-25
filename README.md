@@ -10,6 +10,13 @@
 This document explains the Open Science Catalog Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec)
 (STAC) specification.
 
+- Examples:
+  - [Root Collection example](examples/collection.json): Shows the root level of an OSC catalog
+  - [Project Collection example](examples/4dionosphere-swarm-vip/collection.json): Shows a project STAC Collection
+  - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
+- [JSON Schema](json-schema/schema.json)
+- [Changelog](./CHANGELOG.md)
+
 ## Terms
 
 This extension makes use of certain terms and definitions.
@@ -25,7 +32,7 @@ An physical variable observed by a science product.
 ### Project
 
 A science project dealing with theme, often bound to a certain geographic region. Each project can produce a a number of products,
-which are sub-collections of type [`Product`](#product).
+which are sub-collections of type [`product`](#product).
 
 In the OSC STAC Extension, projects are depicted as STAC Collections with additional [fields](#fields).
 
@@ -38,13 +45,6 @@ In the OSC STAC Extension, products are depicted as STAC Collections with additi
 A product can be linked to sub-collections/catalogs of any shape or form dor directly reference the STAC Items actually referencing
 the data files the Product is comprised of.
 
-- Examples:
-  - [Root Collection example](examples/collection.json): Shows the root level of an OSC catalog
-  - [Project Collection example](examples/4dionosphere-swarm-vip/collection.json): Shows a project STAC Collection
-  - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
-- [JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
-
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
@@ -56,9 +56,9 @@ The fields in the table below can be used in these parts of STAC documents:
 
 | Field Name            | Type                                                  | Description                                                                            | Available for |
 | --------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------- |
-| osc:type              | string                                                | The underlying type of this collection. Either `"Project"` or `"Product"`.             | project, product |
+| osc:type              | string                                                | The underlying type of this collection. Either `"project"` or `"product"`.             | project, product |
 | osc:name              | string                                                | The descriptive name of the project or product. Can be distinct from `title` or `id`.  | project, product |
-| osc:status            | string                                                | Either `"COMPLETED"` or `"ONGOING"`.                                                   | project, product |
+| osc:status            | string                                                | Either `"completed"` or `"ongoing"`.                                                   | project, product |
 | osc:project           | string                                                | The name of the project this product is associated with.                               | product |
 | osc:region            | string                                                | The name of the geographic region this project or product is dealing with if any.      | project, product |
 | osc:themes            | \[string]                                             | The names of the themes the project or product is dealing with.                        | project, product |
@@ -71,7 +71,7 @@ The fields in the table below can be used in these parts of STAC documents:
 
 #### osc:type
 
-The type of this collection, as either `"Project"` if it is a project collection or `"Product"`. This field then
+The type of this collection, as either `"project"` if it is a project collection or `"product"`. This field then
 defines what other fields are allowed.
 
 #### osc:name
@@ -80,7 +80,7 @@ A more descriptive name of the project/product. This is for historic reason and 
 
 #### osc:status
 
-This field details whether the project has already been completed (`"COMPLETED"`) or whether it is still ongoing (`"ONGOING"`).
+This field details whether the project has already been completed (`"completed"`) or whether it is still ongoing (`"ongoing"`).
 
 #### osc:region
 

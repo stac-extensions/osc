@@ -35,9 +35,9 @@
   "osc:variables": [
     "Ionospheric plasma density"
   ],
-  "osc:status": "COMPLETED",
+  "osc:status": "completed",
   "osc:region": null,
-  "osc:type": "Product",
+  "osc:type": "product",
   "keywords": [
     "theme:Magnetosphere_Ionosphere",
     "variable:Ionospheric plasma density",

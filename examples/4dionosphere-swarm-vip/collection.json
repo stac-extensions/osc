@@ -39,7 +39,7 @@
   "osc:themes": [
     "Magnetosphere_Ionosphere"
   ],
-  "osc:status": "COMPLETED",
+  "osc:status": "completed",
   "osc:technical_officer": {
     "name": "Jerome Bouffard",
     "e-mail": "jerome.bouffard@esa.int"
@@ -50,7 +50,7 @@
     "ISTITUTO NAZIONALE DI GEOFISICA E VULCANOLOGIA (IT)",
     "NOTTINGHAM TRENT UNIVERSITY (GB)"
   ],
-  "osc:type": "Project",
+  "osc:type": "project",
   "start_datetime": "2020-04-07T00:00:00Z",
   "end_datetime": "2022-04-16T23:59:59Z",
   "keywords": [
