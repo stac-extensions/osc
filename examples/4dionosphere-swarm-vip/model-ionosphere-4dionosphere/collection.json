@@ -24,7 +24,7 @@
           "id": "Magnetosphere_Ionosphere"
         }
       ],
-      "scheme": "../../../themes.json"
+      "scheme": "https://github.com/stac-extensions/osc#theme"
     }
   ],
   "keywords": [
@@ -55,11 +55,6 @@
   },
   "license": "proprietary",
   "links": [
-    {
-      "rel": "root",
-      "href": "../../collection.json",
-      "type": "application/json"
-    },
     {
       "rel": "via",
       "href": "https://www.mn.uio.no/fysikk/english/research/projects/swarm-vip/",

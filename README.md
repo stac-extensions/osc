@@ -11,7 +11,6 @@ This document explains the Open Science Catalog Extension to the [SpatioTemporal
 (STAC) specification.
 
 - Examples:
-  - [Root Collection example](examples/collection.json): Shows the root level of an OSC catalog
   - [Project Collection example](examples/4dionosphere-swarm-vip/collection.json): Shows a project STAC Collection
   - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
 - [JSON Schema](json-schema/schema.json)
@@ -20,14 +19,6 @@ This document explains the Open Science Catalog Extension to the [SpatioTemporal
 ## Terms
 
 This extension makes use of certain terms and definitions.
-
-### Theme
-
-A thematic grouping of science projects and products, such as "Oceans", "Atmosphere" or "Land".
-
-### Variable
-
-An physical variable observed by a science product.
 
 ### Project
 
@@ -42,35 +33,69 @@ The description of a science product which was produced in the context of a [pro
 
 In the OSC STAC Extension, products are depicted as STAC Collections with additional [fields](#fields).
 
-A product can be linked to sub-collections/catalogs of any shape or form dor directly reference the STAC Items actually referencing
+A product can be linked to sub-collections/catalogs of any shape or form or directly reference the STAC Items actually referencing
 the data files the Product is comprised of.
+STAC Items should mirror the fields of the product collection for search purposes.
+
+### Theme
+
+A thematic grouping of science projects and products, such as "Oceans", "Atmosphere" or "Land".
+
+### Variable
+
+An physical variable observed by a science product, such as "Wind stress" or "Geomagnetic field".
+
+### EO Mission
+
+A set of satellite missions which provided input for the product.
 
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
 - [ ] Catalogs
 - [x] Collections
-- [ ] Item Properties (incl. Summaries in Collections)
+- [x] Item Properties
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name    | Type      | Description                                                                            | Available for |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | ------------- |
-| osc:type      | string    | The underlying type of this collection. Either `"project"` or `"product"`. This field then defines what other fields are allowed. | project, product |
-| osc:name      | string    | The descriptive name of the project or product. Can be distinct from `title` or `id`, but is available for historic reasons. | project, product |
-| osc:status    | string    | This field details whether the project has already been completed (`"completed"`) or whether it is still ongoing (`"ongoing"`). | project, product |
-| osc:project   | string    | The name of the project this product is associated with.                               | product |
-| osc:region    | string    | The name of the geographic region this project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. | project, product |
-| osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. | product |
-| osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  | project, product |
+**NOTE:** The Item fields can be added to Collection summaries, but should usually not
+be added to the summaries as the same fields already exist in the collection as top-level properties anyway.
+As such the extension does not validate Collection summaries.
+
+| Field Name    | Type      | Description |
+| ------------- | --------- | ----------- |
+| osc:type      | string    | **REQUIRED.** The underlying type of this resource. Either `"project"` or `"product"`. This field then defines what other fields are allowed and required. |
+| osc:name      | string    | The descriptive name. Can be distinct from `title` or `id`, but is available for historic reasons. |
+| osc:status    | string    | **REQUIRED.** This field details whether the project or product has already been completed (`"completed"`) or whether it is still ongoing (`"ongoing"`). |
+| osc:project   | string    | **REQUIRED (for products).** The name of the project the product is associated with. |
+| osc:region    | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
+| osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. |
+| osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  |
+
+Fields that apply when the `osc:type` is set to `product`:
+- osc:name
+- osc:status - **REQUIRED**
+- osc:project - **REQUIRED**
+- osc:region
+- osc:variables
+- osc:missions
+- [themes](#themes)
+
+Fields that apply when the `osc:type` is set to `project`:
+- osc:name
+- osc:status - **REQUIRED**
+- osc:region
+- osc:missions
+- [contacts](#contacts)
+- [themes](#themes)
 
 ### Contacts
 
 The following fields should be implemented from the [Contacts extension](https://github.com/stac-extensions/contacts):
 
-| Field Name | Type | Description | Available for |
-| ---------- | ---- | ----------- | ------------- |
-| contacts   | \[[Contact Object](https://github.com/stac-extensions/contacts/blob/main/README.md#contact-object)] | A list of contacts qualified by their role. | project |
+| Field Name | Type | Description |
+| ---------- | ---- | ----------- |
+| contacts   | \[[Contact Object](https://github.com/stac-extensions/contacts/blob/v0.1.1/README.md#contact-object)] | A list of contacts qualified by their role. |
 
 The following `roles` for contacts SHALL be used:
 
@@ -81,9 +106,18 @@ The following `roles` for contacts SHALL be used:
 
 The following fields should be implemented from the [Themes extension](https://github.com/stac-extensions/themes):
 
-| Field Name | Type | Description | Available for |
-| ---------- | ---- | ----------- | ------------- |
-| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/main/README.md#theme-object)] | The names of the themes the project or product is dealing with. | project, product |
+| Field Name | Type | Description |
+| ---------- | ---- | ----------- |
+| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/v1.0.0/README.md#theme-object)] | The names of the themes the project or product is dealing with. |
+
+The themes field can contain concepts from different controlled vocabularies (via `scheme`).
+By default this extension only asks to add concepts for the scheme `https://github.com/stac-extensions/osc#theme`.
+
+In the long term, it is planned to deprecate osc:variables, osc:missions and osc:themes and use
+the themes field for them as well. The following schemes apply:
+- osc:variables: `https://github.com/stac-extensions/osc#variable`
+- osc:product: `https://github.com/stac-extensions/osc#variable`
+- osc:missions: `https://github.com/stac-extensions/osc#eo-mission`
 
 ## Contributing
 
