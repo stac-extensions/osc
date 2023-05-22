@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://stac-extensions.github.io/osc/v1.0.0-rc.1/schema.json#",
+  "title": "Open Science Catalog Extension",
+  "description": "STAC Open Science Catalog Extension for STAC Items and STAC Collections.",
+  "type": "object",
+  "required": [
+    "stac_extensions"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/osc/v1.0.0-rc.1/schema.json"
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "$comment": "This is the schema for STAC Items.",
+      "type": "object",
+      "required": [
+        "type",
+        "properties"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
+        },
+        "properties": {
+          "$ref": "#/definitions/fields"
+        }
+      }
+    },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Collection"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/fields"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "fields": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/product_fields"
+        },
+        {
+          "$ref": "#/definitions/project_fields"
+        }
+      ]
+    },
+    "project_fields": {
+      "type": "object",
+      "required": [
+        "osc:type",
+        "osc:status"
+      ],
+      "properties": {
+        "osc:type": {
+          "type": "string",
+          "const": "project"
+        },
+        "osc:name": {
+          "$ref": "#/definitions/name"
+        },
+        "osc:status": {
+          "$ref": "#/definitions/status"
+        },
+        "osc:region": {
+          "$ref": "#/definitions/region"
+        },
+        "osc:missions": {
+          "$ref": "#/definitions/missions"
+        }
+      },
+      "patternProperties": {
+        "^(?!osc:)": {}
+      },
+      "additionalProperties": false
+    },
+    "product_fields": {
+      "type": "object",
+      "required": [
+        "osc:type",
+        "osc:status",
+        "osc:project"
+      ],
+      "properties": {
+        "osc:type": {
+          "type": "string",
+          "const": "product"
+        },
+        "osc:name": {
+          "$ref": "#/definitions/name"
+        },
+        "osc:status": {
+          "$ref": "#/definitions/status"
+        },
+        "osc:project": {
+          "$ref": "#/definitions/project"
+        },
+        "osc:region": {
+          "$ref": "#/definitions/region"
+        },
+        "osc:variables": {
+          "$ref": "#/definitions/variables"
+        },
+        "osc:missions": {
+          "$ref": "#/definitions/missions"
+        }
+      },
+      "patternProperties": {
+        "^(?!osc:)": {}
+      },
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ongoing", "completed"]
+    },
+    "project": {
+      "type": "string",
+      "minLength": 1
+    },
+    "region": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "missions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
