@@ -71,6 +71,7 @@ As such the extension does not validate Collection summaries.
 | osc:region    | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
 | osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. |
 | osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  |
+| osc:themes    | \[string] | The names of the themes the project or product is dealing with. |
 
 Fields that apply when the `osc:type` is set to `product`:
 - osc:name
@@ -79,15 +80,15 @@ Fields that apply when the `osc:type` is set to `product`:
 - osc:region
 - osc:variables
 - osc:missions
-- [themes](#themes)
+- osc:themes
 
 Fields that apply when the `osc:type` is set to `project`:
 - osc:name
 - osc:status - **REQUIRED**
 - osc:region
 - osc:missions
+- osc:themes
 - [contacts](#contacts)
-- [themes](#themes)
 
 ### Contacts
 
@@ -101,23 +102,6 @@ The following `roles` for contacts SHALL be used:
 
 - The role for the technical officer of a project is `technical_officer`.
 - The role for consortium partners is `consortium_member`.
-
-### Themes
-
-The following fields should be implemented from the [Themes extension](https://github.com/stac-extensions/themes):
-
-| Field Name | Type | Description |
-| ---------- | ---- | ----------- |
-| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/v1.0.0/README.md#theme-object)] | The names of the themes the project or product is dealing with. |
-
-The themes field can contain concepts from different controlled vocabularies (via `scheme`).
-By default this extension only asks to add concepts for the scheme `https://github.com/stac-extensions/osc#theme`.
-
-In the long term, it is planned to deprecate osc:variables, osc:missions and osc:themes and use
-the themes field for them as well. The following schemes apply:
-- osc:variables: `https://github.com/stac-extensions/osc#variable`
-- osc:product: `https://github.com/stac-extensions/osc#variable`
-- osc:missions: `https://github.com/stac-extensions/osc#eo-mission`
 
 ## Contributing
 

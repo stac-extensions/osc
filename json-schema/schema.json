@@ -83,6 +83,9 @@
         },
         "osc:missions": {
           "$ref": "#/definitions/missions"
+        },
+        "osc:themes": {
+          "$ref": "#/definitions/themes"
         }
       },
       "patternProperties": {
@@ -119,6 +122,9 @@
         },
         "osc:missions": {
           "$ref": "#/definitions/missions"
+        },
+        "osc:themes": {
+          "$ref": "#/definitions/themes"
         }
       },
       "patternProperties": {
@@ -150,6 +156,13 @@
       }
     },
     "missions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "themes": {
       "type": "array",
       "items": {
         "type": "string",
