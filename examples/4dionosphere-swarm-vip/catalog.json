@@ -1,5 +1,5 @@
 {
-  "type": "Collection",
+  "type": "Catalog",
   "id": "4dionosphere-swarm-vip",
   "stac_version": "1.0.0",
   "description": "In the project Swarm satellite data and other datasets are used to determine determine the dominant scales in the ionosphere at different geomagnetic conditions and create a semi-empiric dynamic model of the ionosphere.",
@@ -55,27 +55,6 @@
     "theme:Magnetosphere_Ionosphere"
   ],
   "updated": "2023-03-15T16:24:03.357451Z",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180,
-          -90,
-          18,
-          90
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2020-04-07T00:00:00Z",
-          "2022-04-16T23:59:59Z"
-        ]
-      ]
-    }
-  },
-  "license": "proprietary",
   "links": [
     {
       "rel": "via",
@@ -92,11 +71,6 @@
       "href": "./model-ionosphere-4dionosphere/collection.json",
       "type": "application/json",
       "title": "Semi-empiric model of ionosphere processes_SWARM"
-    },
-    {
-      "rel": "parent",
-      "href": "../collection.json",
-      "type": "application/json"
     }
   ]
 }

@@ -3,7 +3,7 @@
 - **Title:** Open Science Catalog
 - **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0-rc.2/schema.json>
 - **Field Name Prefix:** osc
-- **Scope:** Collection
+- **Scope:** Catalog, Collection, Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @constantinius
 
@@ -11,7 +11,7 @@ This document explains the Open Science Catalog Extension to the [SpatioTemporal
 (STAC) specification.
 
 - Examples:
-  - [Project Collection example](examples/4dionosphere-swarm-vip/collection.json): Shows a project STAC Collection
+  - [Project Catalog example](examples/4dionosphere-swarm-vip/catalog.json): Shows a project STAC Catalog
   - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
@@ -52,7 +52,7 @@ A set of satellite missions which provided input for the product.
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
-- [ ] Catalogs
+- [x] Catalogs
 - [x] Collections
 - [x] Item Properties
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)

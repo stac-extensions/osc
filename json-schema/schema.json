@@ -33,14 +33,17 @@
       }
     },
     {
-      "$comment": "This is the schema for STAC Collections.",
+      "$comment": "This is the schema for STAC Catalogs & Collections.",
       "type": "object",
       "required": [
         "type"
       ],
       "properties": {
         "type": {
-          "const": "Collection"
+          "enum": [
+            "Catalog",
+            "Collection"
+          ]
         }
       },
       "allOf": [
