@@ -3,7 +3,7 @@
   "id": "model-ionosphere-4dionosphere",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/osc/v1.0.0-rc.2/schema.json"
+    "https://stac-extensions.github.io/osc/v1.0.0-rc.3/schema.json"
   ],
   "description": "Semi-empiric model and improvement of the forecasting capabilities for extreme space weather events. Swarm-VIP project performs extensive and complex statistical analysis on Swarm electron density, electric and magnetic field data focusing on: 1) the ionospheric climate/weather during quiet geomagnetic conditions; 2) the extreme events such as geomagnetic storms / superstorms and 3) the physics of ionospheric perturbations and small-scale variability. Currently the access to the results is restricted. If you would like to gain access, please contact Lasse Clausen (http://www.mn.uio.no/fysikk/english/people/aca/lbnc/) or Wojciech Miloch (http://www.mn.uio.no/fysikk/english/people/aca/wojciecm/index.html).",
   "title": "Semi-empiric model of ionosphere processes_SWARM",

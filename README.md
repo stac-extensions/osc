@@ -1,7 +1,7 @@
 # Open Science Catalog Extension Specification
 
 - **Title:** Open Science Catalog
-- **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0-rc.2/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0-rc.3/schema.json>
 - **Field Name Prefix:** osc
 - **Scope:** Catalog, Collection, Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal

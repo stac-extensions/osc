@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/osc/v1.0.0-rc.2/schema.json#",
+  "$id": "https://stac-extensions.github.io/osc/v1.0.0-rc.3/schema.json#",
   "title": "Open Science Catalog Extension",
   "description": "STAC Open Science Catalog Extension for STAC Items and STAC Collections.",
   "type": "object",
@@ -11,7 +11,7 @@
     "stac_extensions": {
       "type": "array",
       "contains": {
-        "const": "https://stac-extensions.github.io/osc/v1.0.0-rc.2/schema.json"
+        "const": "https://stac-extensions.github.io/osc/v1.0.0-rc.3/schema.json"
       }
     }
   },
