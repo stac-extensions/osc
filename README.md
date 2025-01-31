@@ -52,6 +52,7 @@ A set of satellite missions which provided input for the product.
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
+
 - [x] Catalogs
 - [x] Collections
 - [x] Item Properties
@@ -71,23 +72,24 @@ As such the extension does not validate Collection summaries.
 | osc:region    | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
 | osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. |
 | osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  |
-| osc:themes    | \[string] | The names of the themes the project or product is dealing with. |
 
 Fields that apply when the `osc:type` is set to `product`:
+
 - osc:name
 - osc:status - **REQUIRED**
 - osc:project - **REQUIRED**
 - osc:region
 - osc:variables
 - osc:missions
-- osc:themes
+- [themes](#themes)
 
 Fields that apply when the `osc:type` is set to `project`:
+
 - osc:name
 - osc:status - **REQUIRED**
 - osc:region
 - osc:missions
-- osc:themes
+- [themes](#themes)
 - [contacts](#contacts)
 
 ### Contacts
@@ -102,6 +104,17 @@ The following `roles` for contacts SHALL be used:
 
 - The role for the technical officer of a project is `technical_officer`.
 - The role for consortium partners is `consortium_member`.
+
+### Themes
+
+The following fields should be implemented from the [Themes extension](https://github.com/stac-extensions/themes):
+
+| Field Name | Type | Description |
+| ---------- | ---- | ----------- |
+| themes     | \[[Theme Object](https://github.com/stac-extensions/themes/blob/v1.0.0/README.md#theme-object)] | The names of the themes the project or product is dealing with. |
+
+The themes field can contain concepts from different controlled vocabularies (via `scheme`).
+By default this extension only asks to add concepts for the scheme `https://github.com/stac-extensions/osc#theme`.
 
 ## Contributing
 
@@ -118,11 +131,13 @@ To run tests locally, you'll need `npm`, which is a standard part of any [node.j
 
 First you'll need to install everything with npm once. Just navigate to the root of this repository and on
 your command line run:
+
 ```bash
 npm install
 ```
 
 Then to check markdown formatting and test the examples against the JSON schema, you can run:
+
 ```bash
 npm test
 ```
@@ -130,6 +145,7 @@ npm test
 This will spit out the same texts that you see online, and you can then go and fix your markdown or examples.
 
 If the tests reveal formatting problems with the examples, you can fix them with:
+
 ```bash
 npm run format-examples
 ```
