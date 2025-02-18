@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.4]
+
 ### Added
 
 - Added `planned` to allowed values for `osc:status`
@@ -13,8 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Use `themes` instead of the `osc:themes`
-
-### Deprecated
 
 ### Removed
 
@@ -42,7 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release
 
-[Unreleased]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.3...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.4...HEAD>
+[1.0.0-rc.4]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.3...v1.0.0-rc.4>
 [1.0.0-rc.3]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.2...v1.0.0-rc.3>
 [1.0.0-rc.2]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.1...v1.0.0-rc.2>
 [1.0.0-rc.1]: <https://github.com/stac-extensions/osc/tree/v1.0.0-rc.1>
