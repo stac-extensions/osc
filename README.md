@@ -88,7 +88,6 @@ Fields that apply when the `osc:type` is set to `project`:
 - osc:name
 - osc:status - **REQUIRED**
 - osc:region
-- osc:missions
 - [themes](#themes)
 - [contacts](#contacts)
 
