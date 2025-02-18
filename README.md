@@ -1,7 +1,7 @@
 # Open Science Catalog Extension Specification
 
 - **Title:** Open Science Catalog
-- **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0-rc.3/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/osc/v1.0.0-rc.4/schema.json>
 - **Field Name Prefix:** osc
 - **Scope:** Catalog, Collection, Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -11,8 +11,9 @@ This document explains the Open Science Catalog Extension to the [SpatioTemporal
 (STAC) specification.
 
 - Examples:
-  - [Project Catalog example](examples/4dionosphere-swarm-vip/catalog.json): Shows a project STAC Catalog
-  - [Product Collection example](examples/4dionosphere-swarm-vip/model-ionosphere-4dionosphere/collection.json): Shows a product STAC Collection
+  - [Project Collection example](examples/project/collection.json): Shows a project STAC Collection
+  - [Product Collection example](examples/product/collection.json): Shows a product STAC Collection
+  - [Product Item example](examples/product/item.json): Shows a product STAC Item
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -88,7 +89,6 @@ Fields that apply when the `osc:type` is set to `project`:
 - osc:name
 - osc:status - **REQUIRED**
 - osc:region
-- osc:missions
 - [themes](#themes)
 - [contacts](#contacts)
 

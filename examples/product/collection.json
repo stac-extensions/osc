@@ -1,0 +1,129 @@
+{
+  "type": "Collection",
+  "id": "absolute-sea-level-heights-baltics-sar-hsu",
+  "stac_version": "1.0.0",
+  "description": "Time series of absolute sea level heights of tide gauge stations involved in the project BALTIC+ Geodetic SAR for Baltic Height System Unification (SAR-HSU). Product details available at: https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SAR-HSU-TN-0019_Dataset_User_Manual.pdf",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "via",
+      "href": "https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip",
+      "title": "Access"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "Products"
+    },
+    {
+      "rel": "related",
+      "href": "../../projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json",
+      "type": "application/json",
+      "title": "Project: SAR-HSU"
+    },
+    {
+      "rel": "related",
+      "href": "../../themes/oceans/catalog.json",
+      "type": "application/json",
+      "title": "Theme: Oceans"
+    },
+    {
+      "rel": "related",
+      "href": "../../variables/sea-surface-height-anomaly-ssha/catalog.json",
+      "type": "application/json",
+      "title": "Variable: Sea Surface Height Anomaly (SSHA)"
+    },
+    {
+      "rel": "related",
+      "href": "../../eo-missions/goce/catalog.json",
+      "type": "application/json",
+      "title": "EO Mission: GOCE"
+    },
+    {
+      "rel": "related",
+      "href": "../../eo-missions/sentinel-1/catalog.json",
+      "type": "application/json",
+      "title": "EO Mission: Sentinel-1"
+    },
+    {
+      "rel": "related",
+      "href": "../../eo-missions/glonass/catalog.json",
+      "type": "application/json",
+      "title": "EO Mission: GLONASS"
+    },
+    {
+      "rel": "self",
+      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/osc/v1.0.0-rc.4/schema.json",
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+  ],
+  "osc:project": "baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu",
+  "osc:status": "ongoing",
+  "osc:region": "Baltics",
+  "osc:type": "product",
+  "created": "2021-07-07T00:00:00Z",
+  "start_datetime": "2020-01-01T00:00:00Z",
+  "end_datetime": "2020-12-31T23:59:59Z",
+  "cf:parameter": [
+    {
+      "name": "absolute_sea_level_heights"
+    }
+  ],
+  "themes": [
+    {
+      "scheme": "https://github.com/stac-extensions/osc#theme",
+      "concepts": [
+        {
+          "id": "oceans"
+        }
+      ]
+    }
+  ],
+  "osc:variables": [
+    "sea-surface-height-anomaly-ssha"
+  ],
+  "osc:missions": [
+    "goce",
+    "sentinel-1",
+    "glonass"
+  ],
+  "updated": "2024-09-12T20:32:06.209108Z",
+  "title": "SL-ABS: Absolute Sea Level Heights_Baltics_Multimission",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          9.0405918788,
+          53.8666553578,
+          31.3371258934,
+          66.1535071282
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2020-01-01T00:00:00Z",
+          "2020-12-31T23:59:59Z"
+        ]
+      ]
+    }
+  },
+  "license": "proprietary",
+  "keywords": [
+    "Sea Surface Topography",
+    "Sea Surface Height",
+    "Sea Surface Height Anomaly (SSHA)"
+  ]
+}
