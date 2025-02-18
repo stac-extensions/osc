@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Updated examples and chore
+
 ## [1.0.0-rc.3]
 
 ### Added
