@@ -67,7 +67,6 @@ As such the extension does not validate Collection summaries.
 | Field Name    | Type      | Description |
 | ------------- | --------- | ----------- |
 | osc:type      | string    | **REQUIRED.** The underlying type of this resource. Either `"project"` or `"product"`. This field then defines what other fields are allowed and required. |
-| osc:name      | string    | The descriptive name. Can be distinct from `title` or `id`, but is available for historic reasons. |
 | osc:status    | string    | **REQUIRED.** This field details whether the project or product is `planned`, `ongoing`, or has been `completed`. |
 | osc:project   | string    | **REQUIRED (for products).** The name of the project the product is associated with. |
 | osc:region    | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
@@ -76,7 +75,6 @@ As such the extension does not validate Collection summaries.
 
 Fields that apply when the `osc:type` is set to `product`:
 
-- osc:name
 - osc:status - **REQUIRED**
 - osc:project - **REQUIRED**
 - osc:region
@@ -86,7 +84,6 @@ Fields that apply when the `osc:type` is set to `product`:
 
 Fields that apply when the `osc:type` is set to `project`:
 
-- osc:name
 - osc:status - **REQUIRED**
 - osc:region
 - [themes](#themes)
