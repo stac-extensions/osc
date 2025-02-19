@@ -131,6 +131,17 @@ The following fields should be implemented from the [Themes extension](https://g
 The themes field can contain concepts from different controlled vocabularies (via `scheme`).
 By default this extension only asks to add concepts for the scheme `https://github.com/stac-extensions/osc#theme`.
 
+## Relation types
+
+The following types should be used as applicable `rel` types in the
+[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
+
+| Type        | Description                           |
+| ----------- | ------------------------------------- |
+| related     | Links to resources that are identified in the osc: fields, e.g. a link to the project as identified in the `osc:project` field. |
+| environment | Links to a file that identifies the execution environment of an experiment (applicable mostly to OGC API - Records) |
+| input       | Links to a file that identifies any input parameters of an experiment (applicable mostly to OGC API - Records) |
+
 ## OGC API - Records
 
 Although this extension is a STAC extension, similar fields with the same `osc:` prefix
