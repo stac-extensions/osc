@@ -75,9 +75,6 @@
           "type": "string",
           "const": "project"
         },
-        "osc:name": {
-          "$ref": "#/definitions/name"
-        },
         "osc:status": {
           "$ref": "#/definitions/status"
         },
@@ -102,9 +99,6 @@
           "type": "string",
           "const": "product"
         },
-        "osc:name": {
-          "$ref": "#/definitions/name"
-        },
         "osc:status": {
           "$ref": "#/definitions/status"
         },
@@ -125,10 +119,6 @@
         "^(?!osc:)": {}
       },
       "additionalProperties": false
-    },
-    "name": {
-      "type": "string",
-      "minLength": 1
     },
     "status": {
       "type": "string",
