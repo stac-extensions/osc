@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0]
+
 ### Removed
 
 - `osc:name`
@@ -46,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release
 
-[Unreleased]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.4...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/osc/compare/v1.0.0...HEAD>
+[1.0.0]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.4...v1.0.0>
 [1.0.0-rc.4]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.3...v1.0.0-rc.4>
 [1.0.0-rc.3]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.2...v1.0.0-rc.3>
 [1.0.0-rc.2]: <https://github.com/stac-extensions/osc/compare/v1.0.0-rc.1...v1.0.0-rc.2>
