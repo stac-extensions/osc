@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0]
 
+### Added
+
+- `osc:experiment` for products
+- `osc:workflows` for projects
+- Definitions for workflows and experiments
+- Describe relation to OGC API - Records
+
+### Changed
+
+- Clarified which fields apply for which type
+
 ### Removed
 
 - `osc:name`

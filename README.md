@@ -50,6 +50,14 @@ An physical variable observed by a science product, such as "Wind stress" or "Ge
 
 A set of satellite missions which provided input for the product.
 
+### Workflow
+
+A definition of processing steps defined in a project that can be executed in an experiment to generate a product.
+
+### Experiment
+
+A specific execution of a workflow that generated a product.
+
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
@@ -64,29 +72,39 @@ The fields in the table below can be used in these parts of STAC documents:
 be added to the summaries as the same fields already exist in the collection as top-level properties anyway.
 As such the extension does not validate Collection summaries.
 
-| Field Name    | Type      | Description |
-| ------------- | --------- | ----------- |
-| osc:type      | string    | **REQUIRED.** The underlying type of this resource. Either `"project"` or `"product"`. This field then defines what other fields are allowed and required. |
-| osc:status    | string    | **REQUIRED.** This field details whether the project or product is `planned`, `ongoing`, or has been `completed`. |
-| osc:project   | string    | **REQUIRED (for products).** The name of the project the product is associated with. |
-| osc:region    | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
-| osc:variables | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. |
-| osc:missions  | \[string] | The names of the satellite missions which provided input for this project or product.  |
+### Projects and Products
+
+| Field Name     | Type      | Description |
+| -------------- | --------- | ----------- |
+| osc:type       | string    | **REQUIRED.** The underlying type of this resource. Either `"project"` or `"product"`. This field then defines what other fields are allowed and required. |
+| osc:status     | string    | **REQUIRED.** This field details whether the project or product is `planned`, `ongoing`, or has been `completed`. |
+
+Additionally, the following fields from other extensions apply:
+
+- [themes](#themes)
+
+### Products only
 
 Fields that apply when the `osc:type` is set to `product`:
 
-- osc:status - **REQUIRED**
-- osc:project - **REQUIRED**
-- osc:region
-- osc:variables
-- osc:missions
-- [themes](#themes)
+| Field Name     | Type      | Description |
+| -------------- | --------- | ----------- |
+| osc:project    | string    | **REQUIRED.** The name of the project the product is associated with. |
+| osc:region     | string    | The name of the geographic region the project or product is dealing with if any, e.g `"Arctic"` or `"Agulhas"`. |
+| osc:variables  | \[string] | The names of the variables the product is observing, e.g `"Wind stress"` or `"Geomagnetic field"`. |
+| osc:missions   | \[string] | The names of the satellite missions which provided input for this product.  |
+| osc:experiment | string    | The name of the experiment that created the product. |
+
+### Projects only
 
 Fields that apply when the `osc:type` is set to `project`:
 
-- osc:status - **REQUIRED**
-- osc:region
-- [themes](#themes)
+| Field Name     | Type      | Description |
+| -------------- | --------- | ----------- |
+| osc:workflows  | \[string] | The names of the workflows created by the project. |
+
+Additionally, the following fields from other extensions apply:
+
 - [contacts](#contacts)
 
 ### Contacts
@@ -112,6 +130,22 @@ The following fields should be implemented from the [Themes extension](https://g
 
 The themes field can contain concepts from different controlled vocabularies (via `scheme`).
 By default this extension only asks to add concepts for the scheme `https://github.com/stac-extensions/osc#theme`.
+
+## OGC API - Records
+
+Although this extension is a STAC extension, similar fields with the same `osc:` prefix
+are also used in OGC API - Records that describe workflows and experiments.
+
+The following fields occur in workflows:
+
+- `osc:project` (string, required)
+- `osc:experiments` (\[string])
+
+The following fields occur in experiments:
+
+- `osc:project` (string, required)
+- `osc:workflow` (string, required)
+- `osc:product` (string, required)
 
 ## Contributing
 
