@@ -154,7 +154,6 @@ The following fields occur in workflows:
 
 The following fields occur in experiments:
 
-- `osc:project` (string, required)
 - `osc:workflow` (string, required)
 - `osc:product` (string, required)
 
