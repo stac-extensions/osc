@@ -138,11 +138,18 @@ The following types should be used as applicable `rel` types in the
 
 | Type        | Description                           |
 | ----------- | ------------------------------------- |
-| related     | Links to resources that are identified in the osc: fields, e.g. a link to the project as identified in the `osc:project` field. |
+| related     | Links to resources that are identified in the `osc:` fields and `themes`, e.g. a link to the project as identified in the `osc:project` field. |
 | environment | Links to a file that identifies the execution environment of an experiment (applicable mostly to OGC API - Records) |
 | input       | Links to a file that identifies any input parameters of an experiment (applicable mostly to OGC API - Records) |
 
-## OGC API - Records
+## Other entities
+
+### Variables
+
+Variables don't use any `osc:` fields,
+but they expose `themes` and link to themes via the `related` relation type.
+
+### Workflows and Experiments (via OGC API - Records)
 
 Although this extension is a STAC extension, similar fields with the same `osc:` prefix
 are also used in OGC API - Records that describe workflows and experiments.
@@ -150,12 +157,17 @@ are also used in OGC API - Records that describe workflows and experiments.
 The following fields occur in workflows:
 
 - `osc:project` (string, required)
-- `osc:experiments` (\[string])
+
+Additionally, workflows add links with the relation type `child` that point to the experiments.
 
 The following fields occur in experiments:
 
 - `osc:workflow` (string, required)
-- `osc:product` (string, required)
+
+Additionally, experiments add links with the relation type `child` that point to the products.
+
+For all entities referenced in `osc:project` and `osc:workflow`,
+links with the `related` relation type are provided.
 
 ## Contributing
 
